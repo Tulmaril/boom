@@ -1,0 +1,25 @@
+.Timer {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 2rem;
+  height: 27vh;
+  display: flex;
+  align-items: center;
+}
+.Timer img {
+  width: 12rem;
+  height: 27vh;
+  animation: zoom linear 0.5s infinite;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

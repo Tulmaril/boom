@@ -1,0 +1,16 @@
+.MenuItem {
+  margin: 0.5rem;
+  font-size: 2rem;
+  color: yellow;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 0 0 0.2rem yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  padding: 1rem;
+  border: 0.5rem solid yellow;
+  cursor: pointer;
+}
+.MenuItem:hover {
+  opacity: 0.8;
+}

@@ -1,0 +1,11 @@
+.Looser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  height: 100%;
+}
+.Looser__fin {
+  background: url(../../images/explosion.gif) no-repeat left top;
+  background-size: cover;
+}

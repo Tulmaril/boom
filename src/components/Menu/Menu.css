@@ -1,0 +1,33 @@
+.Menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #5a009d;
+  z-index: 1;
+}
+.Menu__close {
+  position: absolute;
+  width: 2rem;
+  background: #ccc;
+  left: 0;
+  top: 1rem;
+  height: 0.4rem;
+  cursor: pointer;
+}
+
+.Menu__close::before,
+.Menu__close::after {
+  position: absolute;
+  content: '';
+  width: 2rem;
+  background: #ccc;
+  left: 0;
+  top: 0.8rem;
+  height: 0.4rem;
+}
+.Menu__close::before {
+  top: -0.8rem;
+}
