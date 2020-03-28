@@ -229,8 +229,6 @@ class Main extends Component {
 
   doExplosion = () => {
     this.explosion.play();
-    this.tik.pause();
-    this.tik.currentTime = 0;
 
     setTimeout(() => {
       this.setState({ stage: 'select-looser' });
@@ -271,6 +269,10 @@ class Main extends Component {
     let rand = Math.floor(
       Math.random() * (this.state.timerMax - this.state.timerMin + 1) + this.state.timerMin
     );
+    setTimeout(() => {
+      this.tik.pause();
+      this.tik.currentTime = 0;
+    }, (rand - 0.5) * 1000);
     setTimeout(this.doExplosion, rand * 1000);
   };
 
