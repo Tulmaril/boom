@@ -263,7 +263,6 @@ class Main extends Component {
     if (!this.state.positionSelected) return;
     this.setState({ positionSelected: false });
     this.setState({ timer: 1 });
-    const tik = document.querySelector('#tik');
 
     this.tik.play();
     let rand = Math.floor(
@@ -272,8 +271,8 @@ class Main extends Component {
     setTimeout(() => {
       this.tik.pause();
       this.tik.currentTime = 0;
-    }, (rand - 0.5) * 1000);
-    setTimeout(this.doExplosion, rand * 1000);
+    }, rand * 1000);
+    setTimeout(this.doExplosion, (rand - 0.5) * 1000);
   };
 
   refreshGame = () => {
