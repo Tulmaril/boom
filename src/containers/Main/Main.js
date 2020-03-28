@@ -190,9 +190,7 @@ class Main extends Component {
     if (id === 'to-game') {
       this.refreshGame();
     }
-    if (id === 'finish-register') {
-      this.explosion.play();
-    }
+    this.explosion.play();
   };
   closeMenu = () => {
     this.setState({ displayMenu: false });
