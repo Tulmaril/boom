@@ -227,8 +227,6 @@ class Main extends Component {
   explosion = new Audio(explosion);
 
   doExplosion = () => {
-    this.tik.pause();
-    this.tik.currentTime = 0;
     this.explosion.play();
 
     setTimeout(() => {
@@ -269,7 +267,11 @@ class Main extends Component {
     let rand = Math.floor(
       Math.random() * (this.state.timerMax - this.state.timerMin + 1) + this.state.timerMin
     );
-    setTimeout(this.doExplosion, rand * 1000);
+    setTimeout(() => {
+      this.tik.pause();
+      this.tik.currentTime = 0;
+    }, rand * 1000);
+    setTimeout(this.doExplosion, (rand - 0.5) * 1000);
   };
 
   refreshGame = () => {
