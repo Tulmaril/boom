@@ -223,11 +223,13 @@ class Main extends Component {
     }
   };
 
-  tik = new Audio(tik);
-  explosion = new Audio(explosion);
+  explosion = () => {
+    const explosion = document.querySelector('#explosion');
+    const tik = document.querySelector('#tik');
 
-  doExplosion = () => {
-    this.explosion.play();
+    explosion.play();
+    tik.pause();
+    tik.currentTime = 0;
 
     setTimeout(() => {
       this.setState({ stage: 'select-looser' });
@@ -262,16 +264,13 @@ class Main extends Component {
     if (!this.state.positionSelected) return;
     this.setState({ positionSelected: false });
     this.setState({ timer: 1 });
+    const tik = document.querySelector('#tik');
 
-    this.tik.play();
+    tik.play();
     let rand = Math.floor(
       Math.random() * (this.state.timerMax - this.state.timerMin + 1) + this.state.timerMin
     );
-    setTimeout(() => {
-      this.tik.pause();
-      this.tik.currentTime = 0;
-    }, rand * 1000);
-    setTimeout(this.doExplosion, (rand - 0.5) * 1000);
+    setTimeout(this.explosion, rand * 1000);
   };
 
   refreshGame = () => {
@@ -354,6 +353,13 @@ class Main extends Component {
         {gamescreen}
         {looser}
         {rules}
+
+        <audio id="explosion" className="audio-element" playsinline>
+          <source src={explosion}></source>
+        </audio>
+        <audio id="tik" className="audio-element" playsinline>
+          <source src={tik}></source>
+        </audio>
       </div>
     );
   }
