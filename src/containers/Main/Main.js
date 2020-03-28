@@ -190,6 +190,9 @@ class Main extends Component {
     if (id === 'to-game') {
       this.refreshGame();
     }
+    if (id === 'finish-register') {
+      this.explosion.play();
+    }
   };
   closeMenu = () => {
     this.setState({ displayMenu: false });
@@ -227,9 +230,9 @@ class Main extends Component {
   explosion = new Audio(explosion);
 
   doExplosion = () => {
-    this.explosion.play();
     this.tik.pause();
     this.tik.currentTime = 0;
+    this.explosion.play();
 
     setTimeout(() => {
       this.setState({ stage: 'select-looser' });
